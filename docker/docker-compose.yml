@@ -1,0 +1,12 @@
+version: "2"
+services:
+  aerospike:
+    image: "aerospike/aerospike-server"
+    ports:
+     - "3000:3000"
+  amc:
+    image: "intimatemerger/amc"
+    ports:
+     - "8081:8081"
+    links:
+      - "aerospike"
