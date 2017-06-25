@@ -4,9 +4,16 @@ services:
     image: "aerospike/aerospike-server"
     ports:
      - "3000:3000"
+  aerospike1:
+    image: "aerospike/aerospike-server"
+    ports:
+     - "3001:3000"
+    links:
+      - "aerospike"
   amc:
     image: "intimatemerger/amc"
     ports:
      - "8081:8081"
     links:
       - "aerospike"
+      - "aerospike1"
